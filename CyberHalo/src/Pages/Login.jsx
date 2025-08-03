@@ -20,10 +20,21 @@ const Login = () => {
     try {
       const response = await api.post('/auth/signin', payload);
       console.log('Login successful:', response.data);
-      // 🔐 Handle successful login logic here (e.g., redirect, store token)
+
+
+      const newToken = response.data.jwt; 
+      
+      if (newToken) {
+        localStorage.setItem('jwtToken', newToken);
+        console.log("New JWT token saved to localStorage.");
+      } else {
+        console.warn("Login successful, but no token received from backend.");
+      }
+      
+       navigate('/upload');
+
     } catch (error) {
       console.error('Login failed:', error.response?.data || error.message);
-      // ❌ Handle error display to user
     }
   };
 

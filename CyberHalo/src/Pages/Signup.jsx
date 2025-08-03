@@ -7,7 +7,8 @@ const Signup = () => {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const confirmPasswordRef = useRef(null);
-  const navigate =useNavigate(null);
+  
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,6 +36,9 @@ const Signup = () => {
       });
       console.log('Signup successful:', res.data);
       alert('Signup successful!');
+
+      navigate('/login'); 
+
     } catch (error) {
       console.error('Signup failed:', error);
       alert('Signup failed. Check console for details.');
@@ -101,7 +105,7 @@ const Signup = () => {
 
           <button
             type="submit"
-            className="w-full py-3 mt-2 bg-[#FFD700] hover:bg-[#D4AF37] text-[#0F0F0F] font-bold rounded-md transition" onClick={()=>navigate('/signup')}
+            className="w-full py-3 mt-2 bg-[#FFD700] hover:bg-[#D4AF37] text-[#0F0F0F] font-bold rounded-md transition"
           >
             Sign Up
           </button>

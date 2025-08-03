@@ -41,10 +41,10 @@ const Navbar = () => {
         </li>
         <li>
           <button
-            onClick={() => navigate('/contact')}
+            onClick={() => navigate('/upload')}
             className="hover:text-[#D4AF37] transition duration-200 bg-transparent"
           >
-            Contact
+            Analysis
           </button>
         </li>
       </ul>
@@ -110,10 +110,10 @@ const Navbar = () => {
             About
           </button>
           <button
-            onClick={() => navigate('/contact')}
+            onClick={() => navigate('/upload')}
             className="text-left hover:text-[#D4AF37]"
           >
-            Contact
+            analysis
           </button>
           <button
             className="w-full mt-2 px-5 py-2 rounded-full font-semibold text-[#0F0F0F]"
