@@ -41,10 +41,17 @@ const ExcelUploader = () => {
     const reader = new FileReader();
     reader.onload = (event) => {
       const data = new Uint8Array(event.target.result);
+      console.log(data)
       const workbook = XLSX.read(data, { type: 'array' });
+
+      console.log(workbook);
+
       const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+      console.log(worksheet);
       const flatJson = XLSX.utils.sheet_to_json(worksheet);
+      console.log(flatJson)
       const nestedJson = transformData(flatJson); // ✅ get single object
+      console.log(nestedJson)
       setJsonData(nestedJson);
       setProcessing(false);
       setUploaded(true);
@@ -121,6 +128,8 @@ const ExcelUploader = () => {
             <div>
               <h2 className="text-xl font-semibold mb-4">Chart View (Auto generate UI)</h2>
               <p className="text-[#A1A1A1]">[ UI auto generation placeholder ]</p>
+              <PremiumToxicityChart data={jsonData}/>
+              
             </div>
           </div>
         </div>
